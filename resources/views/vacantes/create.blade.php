@@ -10,6 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("Formulario") }}
+
+                    <h1 class="text-2xl font-bold text-center my-10"> Publicar la Vacante</h1>
+                    <div class="md:flex md:justify-center p-5">
+                              <livewire:crear-vacante/>
+                    </div>
                 </div>
             </div>
         </div>
