@@ -1,4 +1,4 @@
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
 <!-- Email Address -->
         <div>
             <x-input-label for="titulo" :value="__('Titulo Vacante')" />
@@ -81,7 +81,7 @@
 
         <div>
             <x-input-label for="imagen" :value="__('Imagen')" />
-            <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model.live="imagen"  accept="image/*"/>
+            <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model.live="imagen_nueva"  accept="image/*"/>
 
             <div class="my-5 w-80">
             <x-input-label  :value="__('Imagen Actual')" />
@@ -89,14 +89,14 @@
             </div>
 
 
-          {{-- <div class="my-5 w-80">
-                @if ($imagen)
-                    Imagen:
-                    <img src="{{$imagen->temporaryUrl()}}">
+          <div class="my-5 w-80">
+                @if ($imagen_nueva)
+                    Imagen Nueva:
+                    <img src="{{$imagen_nueva->temporaryUrl()}}">
                 @endif
 
-            </div>--}}
-            @error('imagen')
+            </div>
+            @error('imagen_nueva')
                 
                 <livewire:mostrar-alerta :message="$message" />
     
@@ -104,7 +104,7 @@
         </div>
 
         <x-primary-button>
-            Crear Vacante
+           Guardar Cambios
         </x-primary-button>
 
         

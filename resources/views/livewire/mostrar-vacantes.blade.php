@@ -25,3 +25,26 @@
             </div>
 
             </div>
+            @push('scripts')
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                        Swal.fire({
+                        title: 'Eliminar vacante?',
+                        text: "Una Vacante Eliminada No se Puede RECUPERAR!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, !ELIMINAR!',
+                        cancelButtonColor: 'Cancelar'
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                                )
+                                }
+                                })
+                </script>
+            @endpush

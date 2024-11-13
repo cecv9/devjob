@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vacante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VacantesController extends Controller
 {
@@ -48,6 +49,9 @@ class VacantesController extends Controller
     public function edit(Vacante $vacante)
     {
         //
+                //$this->authorize('update',$vacante);
+                Gate::authorize('update', $vacante);
+                
 
                 return view('vacantes.edit',[
                     'vacante'=>$vacante
@@ -57,16 +61,16 @@ class VacantesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
+   // public function update(Request $request, string $id)
+   // {
         //
-    }
+   // }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
+   // public function destroy(string $id)
+   // {
         //
-    }
+  //  }
 }
