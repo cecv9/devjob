@@ -45,10 +45,14 @@ public function crearVacante(){
 
     //Almacenar la Imagen 
     //$this->imagen->store('public/vacantes');
-    $imagen = $this->imagen->store('public/vacantes');
+   // $imagen = $this->imagen->store('public/vacantes');
+   //$imagen = $this->imagen->store(path:'public');
+  $imagen = $this->imagen->store('public/vacantes');
 
-    $datos['imagen']=str_replace('public/vacantes/','',$imagen);
+    //$datos['imagen']=str_replace('public/','',$imagen);
 
+    $datos['imagen']= str_replace('public/vacantes/','',$imagen);
+ // $datos=explode("/",$imagen)[1];
     //dd($nombre_imagen);
 
     //Crear la Vacante

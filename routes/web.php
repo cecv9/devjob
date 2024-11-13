@@ -8,8 +8,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// linkstorage
+//Route::get('/linkstorage', function () {
+    //Artisan::call('storage:link');
+//});
+
 Route::get('/dashboard', [VacantesController::class,'index'])->middleware(['auth', 'verified'])->name('vacantes.index');
 Route::get('/vacantes/create', [VacantesController::class,'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
+Route::get('/vacantes/{vacante}/edit', [VacantesController::class,'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 
 
 
