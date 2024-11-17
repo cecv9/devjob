@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Vacante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+//use App\Http\Controllers\Controller;
+
 
 class VacantesController extends Controller
 {
@@ -13,7 +15,8 @@ class VacantesController extends Controller
      */
     public function index()
     {
-        //
+        //$this->authorize('viewAny',Vacante::class);
+      //  Gate::authorize('viewAny',Vacante::class);--> Aqui esta comantado pero hay que descomentar XDD sirve para que user 1 no pueda crear vacante xdd
         return view('vacantes.index');
     }
 
@@ -23,7 +26,7 @@ class VacantesController extends Controller
     public function create()
     {
         //
-
+        Gate::authorize('create',Vacante::class);
         return  view('vacantes.create');
     }
 
@@ -38,9 +41,12 @@ class VacantesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Vacante $vacante)
     {
         //
+        return view('vacantes.show',[
+            'vacante'=>$vacante
+        ]);
     }
 
     /**

@@ -44,6 +44,7 @@ public function crearVacante(){
     $datos=$this->validate();
 
     //Almacenar la Imagen 
+    
     //$this->imagen->store('public/vacantes');
    // $imagen = $this->imagen->store('public/vacantes');
    //$imagen = $this->imagen->store(path:'public');
