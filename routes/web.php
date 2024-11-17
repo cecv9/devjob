@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacantesController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,8 @@ Route::get('/vacantes/create', [VacantesController::class,'create'])->middleware
 Route::get('/vacantes/{vacante}/edit', [VacantesController::class,'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 Route::get('/vacantes/{vacante}', [VacantesController::class,'show'])->name('vacantes.show');
 
+//Notificaciones
+Route::get('/notificaciones', NotificacionController::class);
 
 
 Route::middleware('auth')->group(function () {
@@ -25,5 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 require __DIR__.'/auth.php';
