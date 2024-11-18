@@ -14,13 +14,13 @@ class NotificacionController extends Controller
         //
 
         $notificaciones = auth()->user()->unreadNotifications;
-      // $notificaciones = auth()->user()->unreadNotifications()->get();
+      //$notificaciones = auth()->user()->unreadNotifications()->get();
 
       // dd($notificaciones);
       // $user = user::has('notifications')->first();
 
          // Limpiar Notificaciones
-        // auth()->user()->unreadNotifications->markAsRead();
+         auth()->user()->unreadNotifications->markAsRead();
         
         return view('notificaciones.index',[
                     'notificaciones'=>$notificaciones
